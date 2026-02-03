@@ -1,20 +1,30 @@
 <script>
   const noBtn = document.getElementById("no");
-  const card = document.querySelector(".card");
+  const noText = document.getElementById("no-text");
 
-  noBtn.addEventListener("mouseover", () => {
-    const cardRect = card.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
+  const mensajes = [
+    "¿Seguro? 🤨",
+    "Piénsalo bien 😌",
+    "Esa opción no era 😅",
+    "Inténtalo otra vez",
+    "No funciona así 👀",
+    "Mmm… no",
+    "Buen intento 😏",
+    "Creo que querías decir que sí",
+    "Sigue sin ser la respuesta correcta",
+    "Ya casi aceptas 😌🍿"
+  ];
 
-    const maxX = cardRect.width - btnRect.width;
-    const maxY = cardRect.height - btnRect.height;
+  let contador = 0;
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+  function intentarNo() {
+    noText.textContent = mensajes[contador % mensajes.length];
+    contador++;
+  }
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
+  // Funciona en PC y iPhone
+  noBtn.addEventListener("click", intentarNo);
+  noBtn.addEventListener("touchstart", intentarNo);
 
   function aceptar() {
     document.body.innerHTML = `
