@@ -1,1 +1,94 @@
-Invitación película
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación 🎬</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 320px;
+      position: relative;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: #22c55e;
+      color: black;
+    }
+
+    #no {
+      background: #ef4444;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>🎬 Invitación oficial</h2>
+    <p>
+      Estás oficialmente invitada  
+      a ver una película conmigo 🍿  
+      <br><br>
+      Elige sabiamente 😌
+    </p>
+
+    <button id="yes" onclick="aceptar()">Sí 💚</button>
+    <button id="no">No ❌</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function aceptar() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          background:#0f172a;
+          color:white;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <h1>Perfecto 😌🍿<br>Entonces nos vemos para la peli 🎬</h1>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
+
