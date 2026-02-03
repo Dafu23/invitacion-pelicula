@@ -2,17 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
-  <!-- 🔑 CLAVE para que funcione en TODOS los dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Invitación 🎬</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -30,23 +23,17 @@
       padding: 25px;
       border-radius: 16px;
       text-align: center;
-      max-width: 350px;
       width: 100%;
-    }
-
-    h2 {
-      margin-top: 0;
+      max-width: 360px;
     }
 
     button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
+      padding: 12px;
       font-size: 16px;
-      cursor: pointer;
-      margin: 8px;
+      border-radius: 10px;
+      border: none;
       width: 100%;
-      max-width: 200px;
+      margin-top: 10px;
     }
 
     #yes {
@@ -57,13 +44,15 @@
     #no {
       background: #ef4444;
       color: white;
-      position: static; /* 🚫 NO se mueve nunca */
+      /* 🚫 IMPOSIBLE que se mueva */
+      position: static;
+      transform: none;
     }
 
     #no-text {
       margin-top: 15px;
       font-size: 14px;
-      opacity: 0.85;
+      opacity: 0.8;
       min-height: 20px;
     }
   </style>
@@ -77,7 +66,7 @@
     <p>
       Estás invitada a ver una película conmigo 🍿  
       <br><br>
-      Elige con sabiduría 😌
+      Elige sabiamente 😌
     </p>
 
     <button id="yes">Sí 💚</button>
@@ -92,28 +81,25 @@
     const noText = document.getElementById("no-text");
 
     const mensajes = [
-      "¿Segura? 🤨",
+      "¿Seguro? 🤨",
       "Piénsalo otra vez 😌",
       "Esa opción no funciona 😅",
       "Buen intento",
       "Creo que querías decir que sí 👀",
       "Sigue sin ser correcto",
-      "Ya casi aceptas 😏",
-      "No te va a dejar decir que no",
       "Esto es infinito ♾️",
       "Spoiler: la respuesta es sí 🍿"
     ];
 
-    let contador = 0;
+    let i = 0;
 
-    function intentarNo() {
-      noText.textContent = mensajes[contador % mensajes.length];
-      contador++;
+    function decirNo() {
+      noText.textContent = mensajes[i % mensajes.length];
+      i++;
     }
 
-    // Compatible con todos los dispositivos
-    noBtn.addEventListener("click", intentarNo);
-    noBtn.addEventListener("touchstart", intentarNo);
+    noBtn.addEventListener("click", decirNo);
+    noBtn.addEventListener("touchstart", decirNo);
 
     yesBtn.addEventListener("click", () => {
       document.body.innerHTML = `
@@ -126,12 +112,8 @@
           color:white;
           font-family:Arial;
           text-align:center;
-          padding:20px;
         ">
-          <h1>
-            Perfecto 😌🍿<br>
-            Entonces nos vemos para la peli 🎬
-          </h1>
+          <h1>Perfecto 😌🍿<br>Entonces nos vemos para la peli 🎬</h1>
         </div>
       `;
     });
@@ -139,4 +121,3 @@
 
 </body>
 </html>
-
